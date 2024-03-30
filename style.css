@@ -1,0 +1,334 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  cursor: url('images/key.png'), auto;
+}
+
+h1 { /* This is for the title */
+  font-family: 'Nosifer', cursive;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 48px; 
+}
+ 
+.wrapper { 
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.frame-container { 
+  position: absolute;
+  top: -0%;
+  left: -60%;
+  width: 213%; /* This is for the iframe cropping, don't want youtube details displayed, takes away from message, especially title */
+  height: 120%;
+}
+
+.frame-container iframe { /* This is for the iframe */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.iframe-overlay { /* This is for the overlay */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 2;
+}
+
+.video-iframe { 
+  pointer-events: none;
+}
+
+.door-container { 
+  overflow-x: scroll;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 50px;
+}
+
+.door-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.door-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 4px;
+}
+
+.door-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(134, 134, 134, 0.5);
+}
+
+.door-container::-webkit-scrollbar-track {
+  background-color: rgba(231, 231, 231, 0.1);
+}
+
+.doors-wrapper {
+  display: inline-block;
+}
+
+.door-link { /* This is for the door transitions*/
+  display: inline-block;
+  margin: 20px;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.door-link:hover {
+  transform: scale(1.05);
+}
+
+.door {
+  width: 250px;
+  height: 500px;
+  transition: transform 0.3s;
+}
+
+.door-colored {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 500px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.door-link:hover .door {
+  opacity: 0;
+}
+
+.door-link:hover .door-colored {
+  opacity: 1;
+  cursor: url('images/key_glow.png'), auto;
+}
+
+.door-link.colored .door {
+  opacity: 0;
+}
+
+.door-link.colored .door-colored {
+  opacity: 1;
+}
+
+.door-page {
+  background-color: #000;
+  color: #fff;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.video-background { /* This is for the video background */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.video-background iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.team-section {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.team-member {
+  width: 250px;
+  padding: 30px;
+  background-color: #222;
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+}
+
+.team-member p {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Merriweather', serif;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.contact-icons a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0 10px;
+  transition: background-color 0.3s;
+}
+
+.contact-icons a:hover {
+  background-color: #f1f1f1;
+  cursor: url('images/key_glow.png'), auto;
+}
+
+.contact-icons img {
+  width: 24px;
+  height: 24px;
+  margin: 8px;
+}
+
+.button-container {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.back-button { /* This is for the back wit custom font button */
+  font-family: 'Merriweather', serif;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+}
+
+.back-button:hover {
+  background-color: rgba(80, 80, 80, 0.7);
+  cursor: url('images/key_glow.png'), auto; /* This is for the cursor as you cabn see we have custom for different hover interactions */
+}
+
+.play-button {
+  font-family: 'Merriweather', serif;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.play-button:hover {
+  background-color:  rgba(80, 80, 80, 0.7);
+  cursor: url('images/key_glow.png'), auto;
+}
+
+.transcript-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.transcript {
+  font-family: 'Merriweather', serif;
+  font-size: 24px;
+  color: #fff;
+  line-height: 1.5;
+}
+
+.element-selector::-webkit-scrollbar {
+    display: none;
+}
+
+.element-selector {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+.phobia-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#fear-button { /* test */
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #535353;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#fear-button:hover {
+  background-color: #646464;
+}
+
+#phobia-container { 
+  width: 300px; 
+  padding: 30px;
+  background-color: #222;
+  color: #fff;
+  font-size: 20px;
+  font-family: 'Merriweather', serif;
+  line-height: 1.5;
+  margin: 40px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: url('images/key.png'), auto;
+}
+
+#phobia-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  cursor: url('images/key_glow.png'), auto;
+}
